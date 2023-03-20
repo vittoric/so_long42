@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/20 13:22:06 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/20 16:34:29 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJS = ${SRCS:.c=.o}
 LIBFTPATH = ./libft/
 
 CC = ggc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address  -O
+CFLAGS = -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit -lz -g3 -fsanitize=address  -O
 RM = rm -f
 
 %.o: %.c
