@@ -1,2 +1,3 @@
 # so_long42
-An implementation of the 42 project so_long
+An implementation of the 42 project so_long <br>
+/usr/local/lib
