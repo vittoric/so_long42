@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/20 16:34:29 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/20 17:35:47 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,14 @@ MID_GRAY =		\033[38;5;245m
 DARK_GREEN =	\033[38;2;75;179;82m
 DARK_YELLOW =	\033[38;5;143m
 
-SRCS =
+SRCS =main.c
 OBJS = ${SRCS:.c=.o}
 LIBFTPATH = ./libft/
 
-CC = ggc
-CFLAGS = -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit -lz -g3 -fsanitize=address  -O
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror 
+MLXF = -lmlx -framework OpenGL -framework AppKit -lz 
+FSANIT = -g3 -fsanitize=address  -O
 RM = rm -f
 
 %.o: %.c
