@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/21 18:01:41 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:14:59 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,5 @@ int	main(int argc, char **argv)
 
     return (0);
 }
+
+utilizo la libreria minilibx, como  proces el mapa, analizo cada carácter en el mapa para determinar su tipo (pared, jugador, objeto, etc.) y guardo esa información en una estructura de datos que represente el mapa?
