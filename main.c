@@ -1,53 +1,56 @@
-#include <mlx.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
+/*   Updated: 2023/03/21 18:01:41 by vcodrean         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
-
-int	close(int keycode, t_vars *vars)
+//#include <mlx.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include "gnl/get_next_line.h"
+int	main(int argc, char **argv)
 {
-	mlx_destroy_window(vars->mlx, vars->win);
-	return (0);
-}
+	int		x;
+	int		y;
+    int		map_fd;
+    char 	*line = NULL;
+	int		i = 0;
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
+    if (argc != 2)
+    {
+        printf("Error\nWrong number of argc\n");
+        return (1);	
+    }
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
+    map_fd = open(argv[1], O_RDONLY);
+    if (map_fd == -1)
+    {
+        printf("Error\nFailed to open file\n");
+        return (1);
+    }
+	line = get_next_line(map_fd);
+	x = strlen(line);
+    while (line != NULL)
 
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-	t_vars	vars;
-
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 800, 800, "so_long_vica");
-	img.img = mlx_new_image(vars.mlx, 800, 800);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	int i = 5;
-	while (i < 20)
-	{
-		my_mlx_pixel_put(&img, i, 20, 0x00FF0000);
+    {
+        printf("%s\n", line);
 		i++;
-	}
+        free(line);
+		line = get_next_line(map_fd);
+    }
+	y = i;
+	printf("X ES :%d\n", x);
+	printf("Y ES :%d\n", y);
+   //free(line);
+    close(map_fd);
 
-	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
-	mlx_loop(vars.mlx);
-	//mlx_loop(mlx);
+    return (0);
 }

@@ -7,9 +7,9 @@ typedef struct	s_vars {
 
 int	handle_close(int keycode, t_vars *vars)
 {
-	//mlx_clear_window(vars->mlx, vars->win);
+	mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
-	exit(0);
+	//exit(0);
 	return (0);
 }
 
