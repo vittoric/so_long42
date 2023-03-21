@@ -7,7 +7,9 @@ typedef struct	s_vars {
 
 int	handle_close(int keycode, t_vars *vars)
 {
+	//mlx_clear_window(vars->mlx, vars->win);
 	mlx_destroy_window(vars->mlx, vars->win);
+	exit(0);
 	return (0);
 }
 
@@ -22,7 +24,7 @@ int	main(void)
 	t_vars	vars;
 
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 800, 600, "My Window");
+	vars.win = mlx_new_window(vars.mlx, 800, 600, "so_long_vcodrean");
 	img = mlx_xpm_file_to_image(vars.mlx, relative_path, &img_width, &img_height);
 
 	// Calculate the number of times to repeat the texture
