@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_vaid_map.c                                      :+:      :+:    :+:   */
+/*   sl_errors.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 11:50:16 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/22 15:33:12 by vcodrean         ###   ########.fr       */
+/*   Created: 2023/03/22 15:33:20 by vcodrean          #+#    #+#             */
+/*   Updated: 2023/03/22 15:33:31 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    valid_map(char *map)
+void    map_error(int num)
 {
-    int i;
-    
-    i = strlen(map) - 1;
-    if (map[i] == 'r')
-        i--;
-    else
-        map_error(0);
-    if (map[i] == 'e')
-        i--;
-    else
-        map_error(0);
-    if (map[i] == 'b')
-        i--;
-    else
-        map_error(0);
-    if (map[i] == '.')
-        i--;
-    else
-        map_error(0);
+    if (num == 0)
+        {
+            printf("Error\nBad file format\nUse only < .ber >\n");
+            exit(0);
+        }
+    if (num == 1)
+        {
+            printf("Error\nFailed to open map file\n");
+            exit(0);
+        }
+    if (num == 2)
+        {
+            printf("Error\nBad size of rows\n");
+            exit(0);
+        }
 }

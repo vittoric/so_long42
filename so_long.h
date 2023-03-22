@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/22 13:31:11 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:49:45 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,16 @@
 
 typedef struct s_matrix
 {
-    int x;
-    int y;
+    int pos_x;
+    int pos_y;
+    char value;
     
-}   t_matrix ;
+}   t_matrix;
+
+typedef struct s_game
+{
+    t_matrix    **matrix;
+} t_game;
 
 //main
 int     main(int argc, char **argv);
@@ -35,6 +41,10 @@ int     main(int argc, char **argv);
 //map
 void    valid_map(char *map);
 void    find_map_size(char *map, int *x, int *y);
+void    find_map_size_y(char *map, int x, int *y);
+
+//matrix NEO IS ALIVE
+void    creat_matrix(char *map, int x, int y, t_matrix **matrix);
 
 //Errors
 void    map_error(int num);
