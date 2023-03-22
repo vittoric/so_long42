@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:50:16 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/22 12:03:12 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:35:58 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@ void    map_error(int num)
     if (num == 0)
         {
             printf("Error\nBad file format\nUse only < .ber >\n");
+            exit(0);
+        }
+    if (num == 1)
+        {
+            printf("Error\nFailed to open map file\n");
+            exit(0);
+        }
+    if (num == 2)
+        {
+            printf("Error\nBad \n");
             exit(0);
         }
 }
