@@ -6,11 +6,11 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/21 16:33:43 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/22 11:58:51 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c gnl/get_next_line_utils.c gnl/get_next_line.c\
+SRCS = main.c gnl/get_next_line_utils.c gnl/get_next_line.c sl_vaid_map.c
 
 OBJS = $(SRCS:.c=.o)
 

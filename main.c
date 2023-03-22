@@ -6,16 +6,12 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/21 20:14:59 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:58:20 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <mlx.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-#include "gnl/get_next_line.h"
+#include "so_long.h"
 int	main(int argc, char **argv)
 {
 	int		x;
@@ -29,6 +25,7 @@ int	main(int argc, char **argv)
         printf("Error\nWrong number of argc\n");
         return (1);	
     }
+    valid_map(argv[1]);
 
     map_fd = open(argv[1], O_RDONLY);
     if (map_fd == -1)
@@ -54,5 +51,3 @@ int	main(int argc, char **argv)
 
     return (0);
 }
-
-utilizo la libreria minilibx, como  proces el mapa, analizo cada carácter en el mapa para determinar su tipo (pared, jugador, objeto, etc.) y guardo esa información en una estructura de datos que represente el mapa?

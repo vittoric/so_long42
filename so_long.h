@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/21 16:00:33 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:01:33 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 # include "gnl/get_next_line.h"
 # include <mlx.h>
 
-int	main(int argc, char **argv);
+//main
+int     main(int argc, char **argv);
+
+//map
+void    valid_map(char *map);
+
+//Errors
+void    map_error(int num);
 
 #endif
