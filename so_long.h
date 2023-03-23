@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/22 16:49:45 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/23 12:32:57 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include "gnl/get_next_line.h"
 # include <mlx.h>
+# include "libft.h"
 
 //structs
 
@@ -44,9 +45,11 @@ void    find_map_size(char *map, int *x, int *y);
 void    find_map_size_y(char *map, int x, int *y);
 
 //matrix NEO IS ALIVE
-void    creat_matrix(char *map, int x, int y, t_matrix **matrix);
+void    creat_grid(char *map, int x, int y, t_matrix **matrix);
+void    free_memory(t_matrix **matrix);
 
 //Errors
 void    map_error(int num);
+void    matrix_error(t_matrix   **matrix);
 
 #endif

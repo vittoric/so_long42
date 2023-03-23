@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/22 19:09:02 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/23 12:33:56 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ DARK_GREEN =	\033[38;2;75;179;82m
 DARK_YELLOW =	\033[38;5;143m
 
 SRCS = main.c gnl/get_next_line_utils.c gnl/get_next_line.c sl_vaid_map.c\
-		sl_map_size.c sl_errors.c
+		sl_map_size.c sl_errors.c sl_grid.c
  
 OBJS = $(SRCS:.c=.o)
 

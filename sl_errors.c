@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:33:20 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/22 15:33:31 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:24:12 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,25 @@ void    map_error(int num)
             exit(0);
         }
 }
+
+void    free_memory(t_matrix **matrix)
+{
+    int i;
+    
+    i = 0;
+    while (matrix[i])
+    {
+        free(matrix[i]);
+        i++;
+    }
+    free (matrix);
+}
+
+void    matrix_error(t_matrix   **matrix)
+{
+    printf("Memory error\n");
+    free_memory(matrix);
+    exit(0);
+}
+
+

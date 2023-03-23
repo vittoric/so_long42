@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:14:10 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/22 15:15:38 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/23 10:58:19 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    find_map_size_y(char *map, int x, int *y)
     {
         line = get_next_line(map_fd);
         //poner la funccion de la lib
-        *y = strlen(line);
+        *y = ft_strlen(line);
         free(line);
         if (i == 0)
             temp = *y;
