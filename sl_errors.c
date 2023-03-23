@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:33:20 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/23 11:24:12 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:54:03 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ void    map_error(int num)
 {
     if (num == 0)
         {
-            printf("Error\nBad file format\nUse only < .ber >\n");
+            printf("\nError\nBad file format\nUse only < .ber >\n");
             exit(0);
         }
     if (num == 1)
         {
-            printf("Error\nFailed to open map file\n");
+            printf("\nError\nFailed to open map file\n");
             exit(0);
         }
     if (num == 2)
         {
-            printf("Error\nBad size of rows\n");
+            printf("\nError\nBad size of rows\n");
             exit(0);
         }
 }
@@ -43,6 +43,24 @@ void    free_memory(t_matrix **matrix)
     }
     free (matrix);
 }
+
+void error_free(int num, t_matrix **matrix)
+{
+    if (num == 0)
+    {
+        printf("Error\nInvalid map\n");
+        free_memory(matrix);
+        exit(0);
+    }
+     if (num == 1)
+    {
+        printf("Error\nInvalid character\n");
+        free_memory(matrix);
+        exit(0);
+    }
+}
+
+
 
 void    matrix_error(t_matrix   **matrix)
 {

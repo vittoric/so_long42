@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/23 12:33:56 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/23 18:48:41 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ LIBFT_PATH = libft/
 
 CC = gcc 
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address  
+CFLAGS = -Wall -Wextra -Werror -g3 
+#-fsanitize=address  
 
 RM = rm -f
 
@@ -53,7 +54,8 @@ RM = rm -f
 
 $(NAME): $(OBJS)
 		@make -C $(LIBFT_PATH) --silent
-		@$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)  -lmlx -framework OpenGL -framework AppKit -lz
+		@$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)  
+#-lmlx -framework OpenGL -framework AppKit -lz
 		@echo "\n$(GREEN) Created $(EXEC) ✓ $(DEF_COLOR)\n"
 
 all: $(NAME)  
