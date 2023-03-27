@@ -6,11 +6,11 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/23 17:35:38 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:13:43 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <mlx.h>
+
 #include "so_long.h"
 
 void    run_game(t_game *game, int x, int y, char *argv)
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
     if (argc != 2)
     {
         //cambiar por el ft_printf
-        printf("Error\nWrong number of argc\n");
+        ft_printf("Error\nWrong number of argc\n");
         return (1);	
     }
     valid_map(argv[1]);    

@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/23 18:46:52 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:18:48 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <mlx.h>
 # include "gnl/get_next_line.h"
-//# include <mlx.h>
+# include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
 
 //structs

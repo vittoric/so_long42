@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/23 18:48:41 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/27 15:13:06 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,11 @@ OBJS = $(SRCS:.c=.o)
 NAME = so_long
 
 LIBFT_PATH = libft/
+FT_PRINTF_PATH = ft_printf/
 
 CC = gcc 
 
-CFLAGS = -Wall -Wextra -Werror -g3 
+CFLAGS = -Wall -Wextra -Werror -g3 -g 
 #-fsanitize=address  
 
 RM = rm -f
@@ -49,27 +50,29 @@ RM = rm -f
 %.o:%.c
 		@echo "${BLUE} ◎ $(BROWN)Compiling   ${MAGENTA}→   $(CYAN)$< $(DEF_COLOR)"
 		@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_PATH)
+		@$(CC) $(CFLAGS) -c $< -o $@ -I $(FT_PRINTF_PATH)
 
-
+all: $(NAME)  
 
 $(NAME): $(OBJS)
 		@make -C $(LIBFT_PATH) --silent
-		@$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)  
+		@make -C $(FT_PRINTF_PATH) --silent
+		@$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)  -I./libft -L./libft -lft -I./ft_printf -L./ft_printf -lftprintf
 #-lmlx -framework OpenGL -framework AppKit -lz
 		@echo "\n$(GREEN) Created $(EXEC) ✓ $(DEF_COLOR)\n"
-
-all: $(NAME)  
 
 
 clean:
 		@$(RM) $(OBJS)
 		@make -C $(LIBFT_PATH) clean --silent
+		@make -C $(FT_PRINTF_PATH) clean --silent
 		@echo "\n${BLUE} ◎ $(RED)All objects cleaned successfully ${BLUE}◎$(DEF_COLOR)\n"
 
 fclean: clean
 		@$(RM) $(NAME)
 		@$(RM) $(OBJS)
 		@make -C $(LIBFT_PATH) fclean --silent
+		@make -C $(FT_PRINTF_PATH) fclean --silent
 		@echo "\n${BLUE} ◎ $(RED)All objects and executable cleaned successfully${BLUE} ◎$(DEF_COLOR)\n"
 
 re: fclean all
