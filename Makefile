@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/27 15:13:06 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/28 12:39:46 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ DARK_GREEN =	\033[38;2;75;179;82m
 DARK_YELLOW =	\033[38;5;143m
 
 SRCS = main.c gnl/get_next_line_utils.c gnl/get_next_line.c sl_vaid_map.c\
-		sl_map_size.c sl_errors.c sl_grid.c
+		sl_map_size.c sl_errors.c sl_grid.c sl_img.c sl_valid_path.c
  
 OBJS = $(SRCS:.c=.o)
 
@@ -57,8 +57,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 		@make -C $(LIBFT_PATH) --silent
 		@make -C $(FT_PRINTF_PATH) --silent
-		@$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)  -I./libft -L./libft -lft -I./ft_printf -L./ft_printf -lftprintf
-#-lmlx -framework OpenGL -framework AppKit -lz
+		@$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)  -I./libft -L./libft -lft -I./ft_printf -L./ft_printf -lftprintf -lmlx -framework OpenGL -framework AppKit -lz
 		@echo "\n$(GREEN) Created $(EXEC) ✓ $(DEF_COLOR)\n"
 
 
