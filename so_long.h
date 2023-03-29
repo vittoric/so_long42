@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/28 13:07:18 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/29 18:20:17 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ typedef struct  s_mlx
     void    *win;
     void   *img_w;
     void   *img_s;
+    void   *img_chr;
+    void   *img_col;
+    void   *img_exit;
+    void   *img_enemy;
 } t_mlx;
 
 typedef struct s_matrix
@@ -79,5 +83,10 @@ void    error_free(int num, t_matrix **matrix);
 //work with img
 void    set_img(t_mlx *mlx);
 void    put_img(t_game  *game,int x, int y);
+void    image(t_game *game,int  x_pos, int y_pos);
+
+//hooks
+int hook_loop(t_game *game);
+int	close_esc(t_mlx *mlx);
 
 #endif
