@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:33:20 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/27 15:14:52 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:52:13 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ void    map_error(int num)
             ft_printf("\nError\nBad size of rows\n");
             exit(0);
         }
+    if (num == 3)
+        {
+            ft_printf("\nFailed to load XPM files\n");
+            exit(0);
+        }
+        
 }
 
 void    free_memory(t_matrix **matrix)

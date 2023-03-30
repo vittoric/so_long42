@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/29 18:20:17 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:01:20 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <mlx.h>
-# include "gnl/get_next_line.h"
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
+# include "../gnl/get_next_line.h"
+# include "../ft_printf/ft_printf.h"
+# include "../libft/libft.h"
+
+# define XPM_ROUTE		"./xpm/"
 
 //structs
 typedef struct  s_mlx
@@ -30,6 +32,8 @@ typedef struct  s_mlx
     void   *img_w;
     void   *img_s;
     void   *img_chr;
+    void    *cell;
+    void    *wall;
     void   *img_col;
     void   *img_exit;
     void   *img_enemy;
@@ -44,6 +48,17 @@ typedef struct s_matrix
     
 }   t_matrix;
 
+typedef struct s_sprite
+{
+    int		steps;
+	int		steps_flag;
+	int		pos;
+	void	*player_front;
+	void	*player_back;
+	void	*player_right;
+	void	*player_left;
+}   t_sprite;
+
 typedef struct s_game
 {
     t_matrix    **matrix;
@@ -51,6 +66,8 @@ typedef struct s_game
     int         collectibles;
     int         exit;
     int         player;
+    t_sprite    sprite;
+    int			frames;
     
 } t_game;
 
@@ -88,5 +105,11 @@ void    image(t_game *game,int  x_pos, int y_pos);
 //hooks
 int hook_loop(t_game *game);
 int	close_esc(t_mlx *mlx);
+
+//movements
+void    set_xpm(t_game *game);
+void	map_xpm(t_game *game);
+void set_player(t_game *game);
+void *valid_xpm(t_game *game, char *str);
 
 #endif

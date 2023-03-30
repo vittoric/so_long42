@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/28 12:39:46 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/03/30 18:13:34 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,22 +30,21 @@ MID_GRAY =		\033[38;5;245m
 DARK_GREEN =	\033[38;2;75;179;82m
 DARK_YELLOW =	\033[38;5;143m
 
-SRCS = main.c gnl/get_next_line_utils.c gnl/get_next_line.c sl_vaid_map.c\
-		sl_map_size.c sl_errors.c sl_grid.c sl_img.c sl_valid_path.c
- 
-OBJS = $(SRCS:.c=.o)
-
 NAME = so_long
 
+CC = gcc 
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address  
+RM = rm -f
 LIBFT_PATH = libft/
 FT_PRINTF_PATH = ft_printf/
+SRC_PATH = ./src/
 
-CC = gcc 
+SRC = main.c ../gnl/get_next_line_utils.c ../gnl/get_next_line.c sl_vaid_map.c\
+		sl_map_size.c sl_errors.c sl_grid.c sl_img.c sl_valid_path.c
 
-CFLAGS = -Wall -Wextra -Werror -g3 -g 
-#-fsanitize=address  
-
-RM = rm -f
+SRCS = $(addprefix $(SRC_PATH), $(SRC))
+ 
+OBJS = $(SRCS:.c=.o)
 
 %.o:%.c
 		@echo "${BLUE} ◎ $(BROWN)Compiling   ${MAGENTA}→   $(CYAN)$< $(DEF_COLOR)"
