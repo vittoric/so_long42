@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/30 18:44:57 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:52:18 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	close_esc(t_mlx *mlx)
 
 int hook_loop(t_game *game)
 {
+  mlx_key_hook(game->mlx.win, key_event, game);
   mlx_hook(game->mlx.win, 17, (1L << 17), close_esc, &game->mlx);
   mlx_loop(game->mlx.mlx);
   return(0);
@@ -37,9 +38,11 @@ void    run_game(t_game *game, int x, int y, char *argv)
   read_grid(x, y, game);
   //valid_path(x, y, game);
   game->mlx.mlx = mlx_init();
-  game->mlx.win = mlx_new_window(game->mlx.mlx, (y * 110), (x * 110), "so_long_vcodrean");
+  game->mlx.win = mlx_new_window(game->mlx.mlx, (y * 110), (x * 110), "so_llama_vcodrean");
   set_xpm(game);
   //set_img(&game->mlx);
+  game->steps = 0;
+	game->frames = 0;
    
     
 }
@@ -58,7 +61,7 @@ int	main(int argc, char **argv)
     }
     valid_map(argv[1]);    
     find_map_size(argv[1], &x, &y);
-    game.matrix = malloc(sizeof(t_matrix *) * x + y);
+    game.matrix = malloc(sizeof(t_matrix *) * x * y);
     game.matrix[x] = 0;
     if (!game.matrix)
 		  return (0);

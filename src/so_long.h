@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/30 18:01:20 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:55:45 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,23 @@ typedef struct s_sprite
 	void	*player_left;
 }   t_sprite;
 
+typedef struct s_lama
+{
+	int		x;
+	int		y;
+}	t_lama;
+
 typedef struct s_game
 {
     t_matrix    **matrix;
     t_mlx       mlx;
+    t_lama      lama;
     int         collectibles;
     int         exit;
     int         player;
     t_sprite    sprite;
     int			frames;
+	int			steps;
     
 } t_game;
 
@@ -111,5 +119,14 @@ void    set_xpm(t_game *game);
 void	map_xpm(t_game *game);
 void set_player(t_game *game);
 void *valid_xpm(t_game *game, char *str);
+
+
+int	movement(t_game *game, int x, int y);
+void	key_a(t_game *game);
+void	key_d(t_game *game);
+void	key_w(t_game *game);
+void	key_s(t_game *game);
+int	key_event(int key_code, t_game *game);
+
 
 #endif

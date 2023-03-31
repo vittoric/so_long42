@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:05:01 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/30 18:07:54 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/03/31 13:06:33 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void    image(t_game *game,int x_pos,int y_pos)
     if (game->matrix[x_pos][y_pos].value == 'P')
     {
         mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->sprite.player_front, (y_pos * 110), (x_pos * 110));
+        game->lama.x = x_pos;
+		game->lama.y = y_pos;
     }
     else if (game->matrix[x_pos][y_pos].value == 'E')
         mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.img_exit, (y_pos * 110), (x_pos * 110));
