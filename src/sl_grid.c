@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:33:27 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/31 16:07:42 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:35:45 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    creat_grid(char *map, int x, int y, t_matrix **matrix)
             matrix[rowcol[0]][rowcol[1]].pos_x = rowcol[0];
             matrix[rowcol[0]][rowcol[1]].pos_y = rowcol[1];
             matrix[rowcol[0]][rowcol[1]].value = str[rowcol[1]];
-            
+            matrix[rowcol[0]][rowcol[1]].value_aux = str[rowcol[1]];            
             rowcol[1]++;
         }
         free(str);

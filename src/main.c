@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/31 15:52:18 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:37:43 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void    run_game(t_game *game, int x, int y, char *argv)
   borders(x, y, game->matrix);
   read_map(x, y, game);
   read_grid(x, y, game);
-  //valid_path(x, y, game);
+  valid_path(x, y, game);
   game->mlx.mlx = mlx_init();
   game->mlx.win = mlx_new_window(game->mlx.mlx, (y * 110), (x * 110), "so_llama_vcodrean");
   set_xpm(game);

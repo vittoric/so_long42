@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/31 12:55:45 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:35:11 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_matrix
     int pos_x;
     int pos_y;
     char value;
+    char value_aux;
     int border;
     
 }   t_matrix;

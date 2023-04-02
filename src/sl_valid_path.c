@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:40:12 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/28 13:07:30 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:37:13 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
  int	check_cur(t_game *game, int i, int j)
 {
-	if (game->matrix[i][j].value == 'P' &&
-	(game->matrix[i + 1][j].value == 'C'
-	|| game->matrix[i + 1][j].value == '0'
-	|| game->matrix[i - 1][j].value == 'C'
-	|| game->matrix[i - 1][j].value == '0'
-	|| game->matrix[i][j + 1].value == 'C'
-	|| game->matrix[i][j + 1].value == '0'
-	|| game->matrix[i][j - 1].value == 'C'
-	|| game->matrix[i][j - 1].value == '0'))
+	if (game->matrix[i][j].value_aux == 'P' &&
+	(game->matrix[i + 1][j].value_aux == 'C'
+	|| game->matrix[i + 1][j].value_aux == '0'
+	|| game->matrix[i - 1][j].value_aux == 'C'
+	|| game->matrix[i - 1][j].value_aux == '0'
+	|| game->matrix[i][j + 1].value_aux == 'C'
+	|| game->matrix[i][j + 1].value_aux == '0'
+	|| game->matrix[i][j - 1].value_aux == 'C'
+	|| game->matrix[i][j - 1].value_aux == '0'))
 		return (1);
 	return (0);
 }
  void	fill(t_game *game, int i, int j)
 {
-	if (game->matrix[i][j].value == '0' || game->matrix[i][j].value == 'C')
-		game->matrix[i][j].value = 'P';
+	if (game->matrix[i][j].value_aux == '0' || game->matrix[i][j].value_aux == 'C')
+		game->matrix[i][j].value_aux = 'P';
 }
 
  int	check_collect(t_game *game, int x, int y)
@@ -43,7 +43,7 @@
 		j = 0;
 		while (j < y)
 		{
-			if (game->matrix[i][j].value == 'C')
+			if (game->matrix[i][j].value_aux == 'C')
             {
 				//error_found;
                 ft_printf("Unable to reach all collectibles");
@@ -66,10 +66,10 @@
 		j = 0;
 		while (j < y)
 		{
-			if ((game->matrix[i][j].value == 'E' && game->matrix[i + 1][j].value == 'P')
-			|| (game->matrix[i][j].value  == 'E' && game->matrix[i - 1][j].value == 'P')
-			|| (game->matrix[i][j].value  == 'E' && game->matrix[i][j + 1].value == 'P')
-			|| (game->matrix[i][j].value  == 'E' && game->matrix[i][j - 1].value == 'P'))
+			if ((game->matrix[i][j].value_aux == 'E' && game->matrix[i + 1][j].value_aux == 'P')
+			|| (game->matrix[i][j].value_aux  == 'E' && game->matrix[i - 1][j].value_aux == 'P')
+			|| (game->matrix[i][j].value_aux  == 'E' && game->matrix[i][j + 1].value_aux == 'P')
+			|| (game->matrix[i][j].value_aux  == 'E' && game->matrix[i][j - 1].value_aux == 'P'))
 				return (1);
 			j++;
 		}
