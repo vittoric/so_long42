@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:14:10 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/29 15:24:02 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:30:54 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ void    find_map_size(char *map, int *x, int *y)
 
     i = 0;
     map_fd = open(map, O_RDONLY);
-   /* if (map_fd == -1)
-        map_error(1);*/
+    if (map_fd == -1)
+        map_error(1);
 	line = get_next_line(map_fd);
-	//*x = strlen(line);
     while (line != 0)
 
     {

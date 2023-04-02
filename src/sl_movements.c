@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa_key_event.c                                     :+:      :+:    :+:   */
+/*   sl_movements.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 12:29:42 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/03/31 16:14:13 by vcodrean         ###   ########.fr       */
+/*   Created: 2023/04/02 17:43:30 by vcodrean          #+#    #+#             */
+/*   Updated: 2023/04/02 17:43:46 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
 int	movement(t_game *game, int x, int y)
 {
-	int	new_x;
-    int	new_y;
-	
+	int		new_x;
+	int		new_y;
+
 	new_x = game->lama.x + x;
-    new_y = game->lama.y + y;
+	new_y = game->lama.y + y;
 	if (game->matrix[new_x][new_y].value == '1' ||
 			(game->matrix[new_x][new_y].value == 'E'
 				&& game->collectibles != 0))
 	{
-		printf("Colectables %d\n",game->collectibles );
-		printf("Impossible movement\n");
+		ft_printf ("Colectables %d\n", game->collectibles);
+		ft_printf ("Impossible movement\n");
 		return (1);
 	}
 	else
@@ -50,13 +49,11 @@ void	key_a(t_game *game)
 		(game->lama.y * 110), (game->lama.x * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		((game->lama.y + 1) * 110), ((game->lama.x) * 110));
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->sprite.player_left,
-		(game->lama.y * 110), (game->lama.x * 110));
-		
-	
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
+	game->sprite.player_left, (game->lama.y * 110), (game->lama.x * 110));
 	game->frames += 1;
 	game->steps += 1;
-	//print_steps(game);
+	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
 		close_esc(&game->mlx);
 }
@@ -75,11 +72,11 @@ void	key_d(t_game *game)
 		(game->lama.y * 110), (game->lama.x * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		((game->lama.y - 1) * 110), ((game->lama.x) * 110));
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->sprite.player_right,
-		(game->lama.y * 110), (game->lama.x * 110));
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
+	game->sprite.player_right, (game->lama.y * 110), (game->lama.x * 110));
 	game->frames += 1;
 	game->steps += 1;
-	//print_steps(game);
+	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
 		close_esc(&game->mlx);
 }
@@ -98,11 +95,11 @@ void	key_w(t_game *game)
 		(game->lama.y * 110), (game->lama.x * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		(game->lama.y * 110), ((game->lama.x + 1) * 110));
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->sprite.player_back,
-		(game->lama.y) * 110, (game->lama.x * 110));
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
+	game->sprite.player_back, (game->lama.y) * 110, (game->lama.x * 110));
 	game->frames += 1;
 	game->steps += 1;
-	//print_steps(game);
+	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
 		close_esc(&game->mlx);
 }
@@ -121,33 +118,11 @@ void	key_s(t_game *game)
 		(game->lama.y * 110), (game->lama.x * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		(game->lama.y * 110), ((game->lama.x - 1) * 110));
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->sprite.player_front,
-		(game->lama.y * 110), (game->lama.x * 110));
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
+	game->sprite.player_front, (game->lama.y * 110), (game->lama.x * 110));
 	game->frames += 1;
 	game->steps += 1;
-	//print_steps(game);
+	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
 		close_esc(&game->mlx);
-}
-
-
-int	key_event(int key_code, t_game *game)
-{
-	if (game->frames == 8)
-		game->frames = 0;
-	if (key_code == 0 || key_code == 123)
-		if (movement(game, 0, -1) == 0)
-			key_a(game);
-	if (key_code == 1 || key_code == 125)
-		if (movement(game, 1, 0) == 0)
-			key_s(game);
-	if (key_code == 2 || key_code == 124)
-		if (movement(game, 0, 1) == 0)
-			key_d(game);
-	if (key_code == 13 || key_code == 126)
-		if (movement(game, -1, 0) == 0)
-			key_w(game);
-	if (key_code == 53)
-		close_esc(&game->mlx);
-	return (0);
 }

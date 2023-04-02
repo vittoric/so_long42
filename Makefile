@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/03/31 16:49:29 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/04/02 17:44:28 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ FT_PRINTF_PATH = ft_printf/
 SRC_PATH = ./src/
 
 SRC = main.c ../gnl/get_next_line_utils.c ../gnl/get_next_line.c sl_vaid_map.c\
-		sl_map_size.c sl_errors.c sl_grid.c sl_img.c sl_valid_path.c sa_key_event.c
+		sl_map_size.c sl_errors.c sl_grid.c sl_img.c sl_valid_path.c sl_key_event.c\
+		sl_print_spets.c sl_movements.c
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
  

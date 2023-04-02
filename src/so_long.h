@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/02 13:35:11 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:19:20 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ typedef struct  s_mlx
 {
     void    *mlx;
     void    *win;
-    void   *img_w;
-    void   *img_s;
-    void   *img_chr;
+    void    *img_w;
+    void    *img_s;
+    void    *img_chr;
     void    *cell;
     void    *wall;
-    void   *img_col;
-    void   *img_exit;
-    void   *img_enemy;
+    void    *footprints;
+    void    *img_col;
+    void    *img_exit;
+    void    *img_enemy;
 } t_mlx;
 
 typedef struct s_matrix
@@ -87,11 +88,11 @@ int     main(int argc, char **argv);
 void    valid_map(char *map);
 void    find_map_size(char *map, int *x, int *y);
 void    find_map_size_y(char *map, int x, int *y);
- int	check_cur(t_game *game, int i, int j);
- void	fill(t_game *game, int i, int j);
- int	check_collect(t_game *game, int x, int y);
- int	complete_path(t_game *game, int x, int y);
-int    valid_path(int x, int y, t_game  *game);
+int	check_cur(t_game *game, int i, int j);
+void	fill(t_game *game, int i, int j);
+int	check_collect(t_game *game, int x, int y);
+int	complete_path(t_game *game, int x, int y);
+int     valid_path(int x, int y, t_game  *game);
 
 //matrix NEO IS ALIVE
 void    creat_grid(char *map, int x, int y, t_matrix **matrix);
@@ -107,27 +108,29 @@ void    matrix_error(t_matrix   **matrix);
 void    error_free(int num, t_matrix **matrix);
 
 //work with img
-void    set_img(t_mlx *mlx);
 void    put_img(t_game  *game,int x, int y);
 void    image(t_game *game,int  x_pos, int y_pos);
 
 //hooks
-int hook_loop(t_game *game);
-int	close_esc(t_mlx *mlx);
+int     hook_loop(t_game *game);
+int	    close_esc(t_mlx *mlx);
 
 //movements
 void    set_xpm(t_game *game);
 void	map_xpm(t_game *game);
-void set_player(t_game *game);
-void *valid_xpm(t_game *game, char *str);
+void    set_player(t_game *game);
+void    *valid_xpm(t_game *game, char *str);
 
 
-int	movement(t_game *game, int x, int y);
+int	    movement(t_game *game, int x, int y);
 void	key_a(t_game *game);
 void	key_d(t_game *game);
 void	key_w(t_game *game);
 void	key_s(t_game *game);
-int	key_event(int key_code, t_game *game);
+int	    key_event(int key_code, t_game *game);
+
+void    print_steps(t_game *game);
+void fill_value_aux(char *map, int x, int y, t_matrix **matrix);
 
 
 #endif
