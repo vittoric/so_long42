@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:33:27 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/02 18:28:20 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:50:35 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,32 +123,4 @@ void	read_map(int x, int y, t_game *game)
 		}
 		i++;
 	}
-}
-
-void	read_grid(int x, int y, t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	game->collectibles = 0;
-	game->player = 0;
-	game->exit = 0;
-	while (i < x)
-	{
-		j = 0;
-		while (j < y)
-		{
-			if (game->matrix[i][j].value == 'C')
-				game->collectibles++;
-			if (game->matrix[i][j].value == 'P')
-				game->player++;
-			if (game->matrix[i][j].value == 'E')
-				game->exit++;
-			j++;
-		}
-		i++;
-	}
-	if (game->exit != 1 || game->player != 1 || game->collectibles < 1)
-		error_free(0, game->matrix);
 }

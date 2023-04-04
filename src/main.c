@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/02 18:11:43 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:21:33 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 		ft_printf("Error\nWrong number of argc\n");
 		return (1);
 	}
-	valid_map(argv[1]);
+	valid_map(argv[1], ".ber");
 	find_map_size(argv[1], &x, &y);
 	game.matrix = malloc(sizeof(t_matrix *) * x * y);
 	game.matrix[x] = 0;

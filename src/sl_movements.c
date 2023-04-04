@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:43:30 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/02 17:43:46 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:46:16 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ void	key_a(t_game *game)
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
+	{
+		win_game(1);
 		close_esc(&game->mlx);
+	}
 }
 
 void	key_d(t_game *game)
@@ -78,7 +81,10 @@ void	key_d(t_game *game)
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
+	{
+		win_game(1);
 		close_esc(&game->mlx);
+	}
 }
 
 void	key_w(t_game *game)
@@ -101,7 +107,10 @@ void	key_w(t_game *game)
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
+	{
+		win_game(1);
 		close_esc(&game->mlx);
+	}
 }
 
 void	key_s(t_game *game)
@@ -124,5 +133,8 @@ void	key_s(t_game *game)
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
+	{
+		win_game(1);
 		close_esc(&game->mlx);
+	}
 }

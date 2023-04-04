@@ -6,26 +6,11 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:05:01 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/02 19:21:59 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:54:23 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	*valid_xpm(t_game *game, char *str)
-{
-	char	*route;
-	void	*img;
-	int		px;
-
-	px = 110;
-	route = ft_strjoin(XPM_ROUTE, str);
-	img = mlx_xpm_file_to_image(game->mlx.mlx, route, &px, &px);
-	if (!img)
-		map_error(3);
-	free(route);
-	return (img);
-}
 
 void	set_player(t_game *game)
 {
