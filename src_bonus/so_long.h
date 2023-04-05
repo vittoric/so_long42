@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 18:41:19 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:03:52 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct s_sprite
 	int		pos;
 	void	*player_front;
 	void	*player_back;
-	void	*player_right;
+	void	*player_right[3];
 	void	*player_left;
 }	t_sprite;
 

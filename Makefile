@@ -6,7 +6,7 @@
 #    By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 13:18:21 by vcodrean          #+#    #+#              #
-#    Updated: 2023/04/04 17:09:57 by vcodrean         ###   ########.fr        #
+#    Updated: 2023/04/05 17:55:32 by vcodrean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ NAME = so_long
 NAME_BONUS = so_long_bonus
 
 CC = gcc 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address  
+CFLAGS = -Wall -Wextra -Werror
+#-g3 -fsanitize=address  
 RM = rm -f
 LIBFT_PATH = libft/
 FT_PRINTF_PATH = ft_printf/
@@ -60,7 +61,7 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 		@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_PATH)
 		@$(CC) $(CFLAGS) -c $< -o $@ -I $(FT_PRINTF_PATH)
 
-all: $(NAME)
+all: $(NAME) 
 
 bonus: $(NAME_BONUS)
 
@@ -83,7 +84,7 @@ clean:
 		@make -C $(FT_PRINTF_PATH) clean --silent
 		@echo "\n${BLUE} ◎ $(RED)All objects cleaned successfully ${BLUE}◎$(DEF_COLOR)\n"
 
-fclean: clean
+fclean: clean 
 		@$(RM) $(NAME) $(NAME_BONUS)
 		@$(RM) $(OBJS) $(OBJS_BONUS)
 		@make -C $(LIBFT_PATH) fclean --silent

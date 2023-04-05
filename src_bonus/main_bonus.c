@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:15:26 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 15:21:33 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:10:00 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+ 
 int	close_esc(t_mlx *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->win);
@@ -61,12 +62,21 @@ int	main(int argc, char **argv)
 	}
 	valid_map(argv[1], ".ber");
 	find_map_size(argv[1], &x, &y);
-	game.matrix = malloc(sizeof(t_matrix *) * x * y);
-	game.matrix[x] = 0;
+	game.matrix = malloc(sizeof(t_matrix *) * x);
 	if (!game.matrix)
 		return (0);
+	int i = 0;
+	while (i < x)
+	{
+		game.matrix[i] = malloc(sizeof(t_matrix) * y);
+		if (!game.matrix[i])
+			return (0);
+		i++;
+	}
 	run_game(&game, x, y, argv[1]);
 	put_img(&game, x, y);
+	system("leaks so_long_bonus");
 	hook_loop(&game);
+	
 	return (0);
 }

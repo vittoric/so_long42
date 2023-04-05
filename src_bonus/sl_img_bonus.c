@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:05:01 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 18:34:46 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:27:08 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	set_player(t_game *game)
 	game->sprite.player_front = valid_xpm(game, "front.xpm");
 	game->sprite.player_back = valid_xpm(game, "back.xpm");
 	game->sprite.player_left = valid_xpm(game, "left.xpm");
-	game->sprite.player_right = valid_xpm(game, "character.xpm");
+	game->sprite.player_right[0] = valid_xpm(game, "character.xpm");
+	game->sprite.player_right[1] = valid_xpm(game, "character1.xpm");
+	game->sprite.player_right[2] = valid_xpm(game, "character2.xpm");
 }
 
 void	map_xpm(t_game *game)
