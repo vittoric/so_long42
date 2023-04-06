@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:14:10 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 18:53:41 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:55:42 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ void	read_grid(int x, int y, t_game *game)
 	}
 	if (game->exit != 1 || game->player != 1 || game->collectibles < 1 \
 	|| game->patrol < 1)
-		error_free(0, game->matrix);
+		error_free(0, game->matrix, x);
 }

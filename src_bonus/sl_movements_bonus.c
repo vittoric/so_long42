@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 17:43:30 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/05 15:17:34 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:01:48 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ int	movement(t_game *game, int x, int y)
 	if (game->matrix[new_x][new_y].value == '1' ||
 			(game->matrix[new_x][new_y].value == 'E'
 				&& game->collectibles != 0))
-	{
-		ft_printf ("Colectables %d\n", game->collectibles);
-		ft_printf ("Impossible movement\n");
 		return (1);
-	}
 	else
 	{
 		game->lama.x = new_x;
@@ -37,9 +33,9 @@ int	movement(t_game *game, int x, int y)
 
 void	key_a(t_game *game)
 {
-	//int	i;
-	
-	//i = game->frames;
+	int	i;
+
+	i = game->frames;
 	if (game->matrix[game->lama.x][game->lama.y].value == 'C')
 	{
 		game->collectibles--;
@@ -50,20 +46,14 @@ void	key_a(t_game *game)
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		((game->lama.y + 1) * 110), ((game->lama.x) * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
-	game->sprite.player_left, (game->lama.y * 110), (game->lama.x * 110));
-	//game->frames += 1;
+	game->sprite.player_left[i], (game->lama.y * 110), (game->lama.x * 110));
+	game->frames++;
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
-	{
-		win_game(1);
-		close_esc(&game->mlx);
-	}
+		win_game(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'W')
-	{
-		lose_game(1);
-		close_esc(&game->mlx);
-	}
+		lose_game(game);
 }
 
 void	key_d(t_game *game)
@@ -71,8 +61,6 @@ void	key_d(t_game *game)
 	int	i;
 
 	i = game->frames;
-	if (game->frames == 2)
-		game->frames = 0;
 	if (game->matrix[game->lama.x][game->lama.y].value == 'C')
 	{
 		game->collectibles--;
@@ -84,27 +72,20 @@ void	key_d(t_game *game)
 		((game->lama.y - 1) * 110), ((game->lama.x) * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
 	game->sprite.player_right[i], (game->lama.y * 110), (game->lama.x * 110));
-	game->frames += 1;
-	printf("frames %d\n", game->frames);
+	game->frames++;
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
-	{
-		win_game(1);
-		close_esc(&game->mlx);
-	}
+		win_game(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'W')
-	{
-		lose_game(1);
-		close_esc(&game->mlx);
-	}
+		lose_game(game);
 }
 
 void	key_w(t_game *game)
 {	
-//	int	i;
+	int	i;
 
-	//i = game->frames;
+	i = game->frames;
 	if (game->matrix[game->lama.x][game->lama.y].value == 'C')
 	{
 		game->collectibles--;
@@ -115,27 +96,21 @@ void	key_w(t_game *game)
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		(game->lama.y * 110), ((game->lama.x + 1) * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
-	game->sprite.player_back, (game->lama.y) * 110, (game->lama.x * 110));
-	//game->frames += 1;
-	game->steps += 1;
+	game->sprite.player_back[i], (game->lama.y) * 110, (game->lama.x * 110));
+	game->frames++;
+	game->steps++;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
-	{
-		win_game(1);
-		close_esc(&game->mlx);
-	}
+		win_game(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'W')
-	{
-		lose_game(1);
-		close_esc(&game->mlx);
-	}
+		lose_game(game);
 }
 
 void	key_s(t_game *game)
 {
-	//int	i;
+	int	i;
 
-	//i = game->frames;
+	i = game->frames;
 	if (game->matrix[game->lama.x][game->lama.y].value == 'C')
 	{
 		game->collectibles--;
@@ -146,18 +121,12 @@ void	key_s(t_game *game)
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->mlx.cell,
 		(game->lama.y * 110), ((game->lama.x - 1) * 110));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
-	game->sprite.player_front, (game->lama.y * 110), (game->lama.x * 110));
-	//game->frames += 1;
+	game->sprite.player_front[i], (game->lama.y * 110), (game->lama.x * 110));
+	game->frames++;
 	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'E')
-	{
-		win_game(1);
-		close_esc(&game->mlx);
-	}
+		win_game(game);
 	if (game->matrix[game->lama.x][game->lama.y].value == 'W')
-	{
-		lose_game(1);
-		close_esc(&game->mlx);
-	}
+		lose_game(game);
 }

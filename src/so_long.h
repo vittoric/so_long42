@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 16:46:03 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:53:14 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,14 @@ void	creat_grid(char *map, int x, int y, t_matrix **matrix);
 void	grid_corners(int x, int y, t_matrix **matrix);
 void	borders(int x, int y, t_matrix **matrix);
 void	read_map(int x, int y, t_game *game);
-void	free_memory(t_matrix **matrix);
+void	free_memory(t_matrix **matrix, int x);
 void	read_grid(int x, int y, t_game *game);
 
 //Errors
 void	map_error(int num);
-void	matrix_error(t_matrix **matrix);
-void	error_free(int num, t_matrix **matrix);
+void	matrix_error(t_matrix **matrix, int x);
+void	error_free(int num, t_matrix **matrix, int x);
+void	argv_error(int nr);
 
 //work with img
 void	put_img(t_game *game, int x, int y);

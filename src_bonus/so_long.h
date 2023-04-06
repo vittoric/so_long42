@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:44:50 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/05 15:03:52 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:56:22 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ typedef struct s_sprite
 	int		steps;
 	int		steps_flag;
 	int		pos;
-	void	*player_front;
-	void	*player_back;
+	void	*player_front[3];
+	void	*player_back[3];
 	void	*player_right[3];
-	void	*player_left;
+	void	*player_left[3];
 }	t_sprite;
 
 typedef struct s_lama
@@ -101,13 +101,14 @@ void	creat_grid(char *map, int x, int y, t_matrix **matrix);
 void	grid_corners(int x, int y, t_matrix **matrix);
 void	borders(int x, int y, t_matrix **matrix);
 void	read_map(int x, int y, t_game *game);
-void	free_memory(t_matrix **matrix);
+void	free_memory(t_matrix **matrix, int x);
 void	read_grid(int x, int y, t_game *game);
 
 //Errors
 void	map_error(int num);
-void	matrix_error(t_matrix **matrix);
-void	error_free(int num, t_matrix **matrix);
+void	matrix_error(t_matrix **matrix, int x);
+void	error_free(int num, t_matrix **matrix, int x);
+void	argv_error(int nr);
 
 //work with img
 void	put_img(t_game *game, int x, int y);
@@ -133,8 +134,8 @@ int		key_event(int key_code, t_game *game);
 void	print_steps(t_game *game);
 void	fill_value_aux(char *map, int x, int y, t_matrix **matrix);
 
-void	win_game(int fd);
-void	lose_game(int nr);
+void	win_game(t_game *game);
+void	lose_game(t_game *game);
 
 //===SETTINGS 	COLORS===/
 //===Color font code===/

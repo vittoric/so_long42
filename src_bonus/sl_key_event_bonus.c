@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa_key_event.c                                     :+:      :+:    :+:   */
+/*   sl_key_event_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 12:29:42 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/02 17:44:03 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:29:49 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	key_event(int key_code, t_game *game)
 {
-	if (game->frames == 8)
+	if (game->frames == 3)
 		game->frames = 0;
 	if (key_code == 0 || key_code == 123)
 		if (movement(game, 0, -1) == 0)

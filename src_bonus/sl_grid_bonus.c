@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:33:27 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 18:23:48 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:59:20 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	creat_grid(char *map, int x, int y, t_matrix **matrix)
 		rowcol[1] = 0;
 		matrix[rowcol[0]] = malloc(sizeof(t_matrix) * y);
 		if (!matrix[rowcol[0]])
-			matrix_error(matrix);
+			matrix_error(matrix, x);
 		while (rowcol[1] < y)
 		{
 			matrix[rowcol[0]][rowcol[1]].pos_x = rowcol[0];
@@ -95,7 +95,7 @@ void	borders(int x, int y, t_matrix **matrix)
 		{
 			if (matrix[i][j].border == 1)
 				if (matrix[i][j].value != '1')
-					error_free(0, matrix);
+					error_free(0, matrix, x);
 			j++;
 		}
 		i++;
@@ -117,9 +117,9 @@ void	read_map(int x, int y, t_game *game)
 				game->matrix[i][j].value != 'P' && \
 				game->matrix[i][j].value != 'E' && \
 				game->matrix[i][j].value != '0' && \
-				game->matrix[i][j].value != '1' && \
+				game->matrix[i][j].value != '1' &&
 				game->matrix[i][j].value != 'W')
-				error_free(1, game->matrix);
+				error_free(1, game->matrix, x);
 			j++;
 		}
 		i++;

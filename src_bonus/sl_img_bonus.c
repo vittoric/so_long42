@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:05:01 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/05 12:27:08 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:07:04 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 void	set_player(t_game *game)
 {
-	game->sprite.player_front = valid_xpm(game, "front.xpm");
-	game->sprite.player_back = valid_xpm(game, "back.xpm");
-	game->sprite.player_left = valid_xpm(game, "left.xpm");
-	game->sprite.player_right[0] = valid_xpm(game, "character.xpm");
-	game->sprite.player_right[1] = valid_xpm(game, "character1.xpm");
+	game->sprite.player_front[0] = valid_xpm(game, "front1.xpm");
+	game->sprite.player_front[1] = valid_xpm(game, "front.xpm");
+	game->sprite.player_front[2] = valid_xpm(game, "front2.xpm");
+	game->sprite.player_back[0] = valid_xpm(game, "back1.xpm");
+	game->sprite.player_back[1] = valid_xpm(game, "back.xpm");
+	game->sprite.player_back[2] = valid_xpm(game, "back2.xpm");
+	game->sprite.player_left[0] = valid_xpm(game, "left1.xpm");
+	game->sprite.player_left[1] = valid_xpm(game, "left.xpm");
+	game->sprite.player_left[2] = valid_xpm(game, "left2.xpm");
+	game->sprite.player_right[0] = valid_xpm(game, "character1.xpm");
+	game->sprite.player_right[1] = valid_xpm(game, "character.xpm");
 	game->sprite.player_right[2] = valid_xpm(game, "character2.xpm");
 }
 
@@ -45,7 +51,7 @@ void	image(t_game *game, int x_pos, int y_pos)
 	if (game->matrix[x_pos][y_pos].value == 'P')
 	{
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
-		game->sprite.player_front, (y_pos * 110), (x_pos * 110));
+		game->sprite.player_front[0], (y_pos * 110), (x_pos * 110));
 		game->lama.x = x_pos;
 		game->lama.y = y_pos;
 	}
@@ -55,7 +61,6 @@ void	image(t_game *game, int x_pos, int y_pos)
 	else if (game->matrix[x_pos][y_pos].value == 'C')
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, \
 		game->mlx.img_col, (y_pos * 110), (x_pos * 110));
-	
 }
 
 void	put_img(t_game *game, int x, int y)

@@ -6,7 +6,7 @@
 /*   By: vcodrean <vcodrean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 15:25:54 by vcodrean          #+#    #+#             */
-/*   Updated: 2023/04/04 18:52:53 by vcodrean         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:13:30 by vcodrean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@ void	print_steps(t_game *game)
 	free(str);
 }
 
-void	win_game(int fd)
+void	win_game(t_game *game)
 {
-	ft_putstr_fd(ROSE"\n-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-", fd);
-	ft_putstr_fd("\n¡¡You just climb the mountain!!\n", fd);
-	ft_putstr_fd("-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-\n"CYAN, fd);
+	ft_putstr_fd(ROSE"\n-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-", 1);
+	ft_putstr_fd("\n¡¡You just climb the mountain!!\n", 1);
+	ft_putstr_fd("-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-\n"CYAN, 1);
+	close_esc(&game->mlx);
 }
 
-void	lose_game(int fd)
+void	lose_game(t_game *game)
 {
-	ft_putstr_fd(RED"\n-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-", fd);
-	ft_putstr_fd("\n¡¡Your lama is dead :(, try again!!\n", fd);
-	ft_putstr_fd("-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-\n"RESET, fd);
+	ft_putstr_fd(RED"\n-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-", 1);
+	ft_putstr_fd("\n¡¡Your lama is dead (╯╭╮╰) , try again!!\n", 1);
+	ft_putstr_fd("-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-º-\n"RESET, 1);
+	close_esc(&game->mlx);
 }
